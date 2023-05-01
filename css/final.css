@@ -79,7 +79,7 @@ table {
     justify-content: space-between;
   }
   .home h4 a{
-    background-image: url(https://github.com/yan-tingciou/jq-final/blob/main/images-2/logo.png?raw=true);
+    background-image: url(https://github.com/yan-tingciou/jq-final/blob/main/images/logo-1.png?raw=true);
     background-repeat: no-repeat;
     width: 224px;
     height: 50px;
@@ -248,7 +248,7 @@ table {
     justify-content: space-between;
   }
   .feedback{
-    width: 445px;
+    width: 460px;
     resize: none;
     border-radius: 5px;
   }
@@ -258,7 +258,7 @@ table {
     align-items: flex-end;
   }
   label, input{
-    width: 455px;
+    width: 460px;
     font-size: 16px;
     line-height: 1.8;
   }
@@ -266,6 +266,7 @@ table {
     margin-bottom: 10px;
     border-radius: 3px;
     border: 0px #fff;
+    padding-left: 12px;
   }
   .submit{
     width: 60px;
@@ -280,7 +281,7 @@ table {
     padding: 5px 0px 40px;
   }
   .footer h1 a{
-    background-image: url(https://github.com/yan-tingciou/jq-final/blob/main/images-2/footerLogo.png?raw=true);
+    background-image: url(https://github.com/yan-tingciou/jq-final/blob/main/images/footerLogo.png?raw=true);
     width: 171px;
     height: 36px;
     display: inline-block;
