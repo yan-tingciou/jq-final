@@ -74,19 +74,24 @@ table {
   .twtr span{
     color: #00aaec;
   }
+  .button{
+    display: none;
+    background: url(https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg) no-repeat;
+    width: 32px;
+    height: 32px;
+  }
   .header{
     display: flex;
     justify-content: space-between;
+    position: relative;
   }
   .home h4 a{
     background-image: url(https://github.com/yan-tingciou/jq-final/blob/main/images/logo-1.png?raw=true);
     background-repeat: no-repeat;
     width: 224px;
     height: 50px;
-    text-indent: 101%;
-    overflow: hidden;
-    white-space: nowrap;
-    display: inline-block;
+    text-indent: -99999px;
+    display: block;
   }
   .list{
     display: flex;
@@ -98,12 +103,10 @@ table {
     padding: 20px 20px;
     display: block;
     color: #00cc99;
+    position: relative;  
   }
   .list > li > a:hover{
     color: #000;
-  }
-  .list > li > a{
-    position: relative;
   }
   .list > li > a:hover::after{
     display: block;
@@ -116,6 +119,36 @@ table {
   }
   .list ul{
     display: none;
+  }
+  @media(max-width:768px){
+    .button{
+      display: block;
+      position: absolute;
+      right: 0;
+    }
+    .button:hover{
+      cursor: pointer;
+    }
+    .header{
+      flex-direction: column;
+    }
+    .home h4 a{
+      margin: 0 auto;
+    }
+    .list{
+      display: none;
+      max-width: 100%;
+      float: none;
+      text-align: center;
+    }
+    .list > li > a:hover{
+      color: #fff;
+      background: rgb(192,192,192,.5);
+      border-radius: 10px;
+    }
+    .list > li > a:hover::after{
+      border-bottom: none;
+    }
   }
   .open{
     position: absolute;
@@ -150,19 +183,24 @@ table {
   .swiper h2{
     width: 100%;
     padding: 34px 28px;
+    bottom: 80px;
     display: block;
     position: absolute;
-    top: 115px;
     z-index: 2;
     font-size: 32px;
     line-height: 1.5;
     color: #fff;
     background: rgba(0, 0, 0, .2);
   }
+  .course{
+    max-width: 1000px;
+    margin: 0 auto;
+  }
   .type{
     display: flex;
-    justify-content: space-around;
-    margin: 50px 20px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 5% 2%;
   }
   .type h3{
     font-size: 20px;
@@ -170,7 +208,6 @@ table {
     font-family: sans-serif;
     text-align: center;
     margin-top: 10px;
-    
   }
   .type p{
     font-size: 16px;
@@ -181,22 +218,32 @@ table {
     font-family: sans-serif;
   }
   .type > li{
-    width: 32%;
-    padding: 20px;
+    width: 31.33333%;
+    padding: 1%;
     border-right: 1px #d7dbe0 solid;
     border-bottom: 3px #d7dbe0 solid;
     border-left: 1px #d7dbe0 solid;
     line-height: 1.5;
-    margin: 20px 10px;
+    margin: 2% 1%;
   }
   .type > li:hover{
     box-shadow: 3px 3px 5px 3px #718093;
     cursor: pointer;
   }
+  @media(max-width:768px){
+    .type > li{
+      width: 48%;
+    }
+  }
+  @media(max-width:512px){
+    .type > li{
+      width: 98%;
+    }
+  }
   .type li img{
     display: block;
     margin: 0 auto;
-    height: 100px;
+    height: auto;
   }
   .jquery li{
     list-style-type: disc;
@@ -256,11 +303,22 @@ table {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    margin-left: 3%;
   }
   label, input{
     width: 460px;
     font-size: 16px;
     line-height: 1.8;
+  }
+  @media(max-width:768px){
+    label, input{
+      max-width: 345px;
+    }
+  }
+  @media(max-width:569px){
+    label, input{
+      max-width: 230px;
+    }
   }
   #name, #number, #email{
     margin-bottom: 10px;

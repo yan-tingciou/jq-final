@@ -14,6 +14,9 @@ $(document).ready(function(){
    $(this).parent().siblings().find('ul').slideUp();
    
  });
+ $('.button').click(function(event){
+    $('.list').slideToggle();                
+ });
  const swiper = new Swiper('.swiper', {
  // Optional parameters
    direction: 'horizontal',
