@@ -42,335 +42,346 @@ table {
 	border-spacing: 0;
 }
 *, *:before,*:after{
-    box-sizing: border-box;
-  }
-  a{
-    text-decoration: none;
-  }
-  .wrap{
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  .media{
-    background: #e6ebef;
-    margin-top: 10px;
-  }
-  .media ul{
-    display: flex;
+  box-sizing: border-box;
+}
+a{
+  text-decoration: none;
+}
+.wrap{
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.media{
+  background: #e6ebef;
+  margin-top: 10px;
+}
+.media ul{
+  display: flex;
+  float: right;
+  padding: 10px;
+}
+.clearfix{
+  clear: both;
+}
+.fb{
+  padding-right: 10px;
+  margin-right: 10px;
+  border-right: 2px solid #b6bfc9;
+}
+.fb span{
+  color: #4460a0;
+}
+.twtr span{
+  color: #00aaec;
+}
+.list-button img{
+  display: none;
+}
+.header{
+  position: relative;
+}
+.home h4 a{
+  background: url(https://github.com/yan-tingciou/jq-final/blob/main/images/logo-1.png?raw=true) no-repeat;
+  width: 224px;
+  height: 50px;
+  text-indent: -99999px;
+  display: inline-block;
+}
+.home{
+  float: left;
+}
+.list{
+  float: right;
+}
+.list li{
+  float: left;
+}
+.list li > a{
+  padding: 20px;
+  display: block;
+  color: #00cc99;
+  position: relative;
+}
+.list > li > a:hover{
+  color: #000;
+}
+.list > li > a:hover::after{
+  display: block;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-bottom: 3px #00cc99 solid;
+  width: 100%;
+}
+
+@media(max-width:768px){
+  .list-button img {
+    display: inline-block;
     float: right;
-    padding: 10px;
-  }
-  .clearfix{
-    clear: both;
-  }
-  .fb{
-    padding-right: 10px;
-    margin-right: 10px;
-    border-right: 2px solid #b6bfc9;
-  }
-  .fb span{
-    color: #4460a0;
-  }
-  .twtr span{
-    color: #00aaec;
-  }
-  .button{
-    display: none;
-    background: url(https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg) no-repeat;
-    width: 32px;
-    height: 32px;
+    padding-top: 10px;
   }
   .header{
-    display: flex;
-    justify-content: space-between;
-    position: relative;
+    flex-direction: column;
   }
   .home h4 a{
-    background-image: url(https://github.com/yan-tingciou/jq-final/blob/main/images/logo-1.png?raw=true);
-    background-repeat: no-repeat;
-    width: 224px;
-    height: 50px;
-    text-indent: -99999px;
-    display: block;
+    margin: 0 auto;
   }
   .list{
-    display: flex;
+    /*隱藏選單*/
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 2s; /**/
+    margin-top: 1px;
+    /*絕對定位*/    
+    position: absolute;
+    z-index: 10;
+    top: 60px;/*header的logo50px+10px*/
+    
+    right: 0; /*寬度可以滿版*/
+    left: 0; /*寬度可以滿版*/
   }
-  .list li{
+  .list > li {
     text-align: center;
+    float: none;
+
   }
-  .list li > a{
-    padding: 20px 20px;
-    display: block;
-    color: #00cc99;
-    position: relative;  
+  .list > li > a{
+    transition: all 0.3s;
+    border-radius: 5px;   
   }
   .list > li > a:hover{
-    color: #000;
+    color: #fff;
+    background: #00cc99;
+    border-bottom: none;
   }
   .list > li > a:hover::after{
-    display: block;
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    border-bottom: 3px #00cc99 solid; 
-  }
-  .list ul{
-    display: none;
-  }
-  @media(max-width:768px){
-    .button{
-      display: block;
-      position: absolute;
-      right: 0;
-    }
-    .button:hover{
-      cursor: pointer;
-    }
-    .header{
-      flex-direction: column;
-    }
-    .home h4 a{
-      margin: 0 auto;
-    }
-    .list{
-      display: none;
-      max-width: 100%;
-      float: none;
-      text-align: center;
-    }
-    .list > li > a:hover{
-      color: #fff;
-      background: rgb(192,192,192,.5);
-      border-radius: 10px;
-    }
-    .list > li > a:hover::after{
-      border-bottom: none;
-    }
-  }
-  .open{
-    position: absolute;
-    z-index: 2;
-    background: rgba(255, 255, 255, .9);
-  }
-  .open li{
-    width: 104px;
-    font-family: sans-serif;
-  }
-  .open li:hover{
-    background: #00cc99;
-  }
-  .open > li > a:hover{
-    color: #fff; 
-  }
-  .swiper{
-    position: relative;
-  }
-  .swiper-wrapper{
-    margin: 0 auto;
-  }
-  .swiper-slide{
-    display: flex;
-  }
-  .swiper-slide img{
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-    aspect-ratio: 5/2;
-  }
-  .swiper h2{
-    width: 100%;
-    padding: 34px 28px;
-    bottom: 80px;
-    display: block;
-    position: absolute;
-    z-index: 2;
-    font-size: 32px;
-    line-height: 1.5;
-    color: #fff;
-    background: rgba(0, 0, 0, .2);
-  }
-  .course{
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  .type{
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    margin: 5% 2%;
-  }
-  .type h3{
-    font-size: 20px;
-    font-weight: bold;
-    font-family: sans-serif;
-    text-align: center;
-    margin-top: 10px;
-  }
-  .type p{
-    font-size: 16px;
-    font-family: sans-serif;
-  }
-  .type h4{
-    font-size: 16px;
-    font-family: sans-serif;
-  }
+    border-bottom: none;
+  } 
+}
+.open{
+  display: none;
+  position: absolute;
+  z-index: 2;
+  width: 104px;
+}
+.open li{
+  text-align: center;
+  font-family: sans-serif;
+  background: rgba(255, 255, 255, .9);
+}
+.open li:hover{
+  background: #00cc99;
+}
+.open > li > a{
+  width: 104px;
+  transition: all 0.3s;
+}
+.open > li > a:hover{
+  color: #fff; 
+}
+.button-list .list{
+  max-height: 224px
+}
+.swiper{
+  position: relative;
+}
+.swiper-wrapper{
+  margin: 0 auto;
+}
+.swiper-slide{
+  display: flex;
+}
+.swiper-slide img{
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  aspect-ratio: 5/2;
+}
+.swiper h2{
+  width: 100%;
+  padding: 34px 28px;
+  bottom: 8%;
+  display: block;
+  position: absolute;
+  z-index: 2;
+  font-size: 32px;
+  line-height: 1.5;
+  color: #fff;
+  background: rgba(0, 0, 0, .2);
+}
+.course{
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.type{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 5% 2%;
+}
+.type h3{
+  font-size: 20px;
+  font-weight: bold;
+  font-family: sans-serif;
+  text-align: center;
+  margin-top: 10px;
+}
+.type p{
+  font-size: 16px;
+  font-family: sans-serif;
+}
+.type h4{
+  font-size: 16px;
+  font-family: sans-serif;
+}
+.type > li{
+  width: 31.33333%;
+  padding: 1%;
+  border-right: 1px #d7dbe0 solid;
+  border-bottom: 3px #d7dbe0 solid;
+  border-left: 1px #d7dbe0 solid;
+  line-height: 1.5;
+  margin: 2% 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.type > li:hover{
+  box-shadow: 3px 3px 5px 3px #718093;
+  cursor: pointer;
+}
+@media(max-width:768px){
   .type > li{
-    width: 31.33333%;
-    padding: 1%;
-    border-right: 1px #d7dbe0 solid;
-    border-bottom: 3px #d7dbe0 solid;
-    border-left: 1px #d7dbe0 solid;
-    line-height: 1.5;
-    margin: 2% 1%;
+    width: 48%;
   }
-  .type > li:hover{
-    box-shadow: 3px 3px 5px 3px #718093;
-    cursor: pointer;
+}
+@media(max-width:512px){
+  .type > li{
+    width: 98%;
   }
-  @media(max-width:768px){
-    .type > li{
-      width: 48%;
-    }
-  }
-  @media(max-width:512px){
-    .type > li{
-      width: 98%;
-    }
-  }
-  .type li img{
-    display: block;
-    margin: 0 auto;
-    height: auto;
-  }
-  .jquery li{
-    list-style-type: disc;
-    font-size: 10px;
-    padding-left: 0px;
-    margin-left: 16px;
-  }
-  .jquery span{
-    font-size: 16px;
-  }
-  .compare h2{
-    font-size: 36px;
-    text-align: center;
-  }
-  .compare table{
-    font-size: 16px;
-    font-family: sans-serif;
-    margin: 0 auto;
-    line-height: 2.5;
-    margin-top: 30px;
-  }
-  .compare th, td{
-    width: 200px;
-    border-bottom: 1px solid #d7dbe0;
-    padding: 0px 25px;
-  }
-  .compare th{
-    border-top: 1px solid #d7dbe0;
-    background: rgba(0, 0, 0, .1);
-    text-align: left;
-  }
-  .green{
-    color: #00cc99;
-  }
-  .form{
-    background-image: url(https://github.com/yan-tingciou/final-assignment/blob/main/%E4%BD%BF%E7%94%A8html%E5%81%9A%E7%B6%B2%E7%AB%99--2_30_03.png?raw=true);
-    padding: 30px 20px 23px 20px;
-    margin-top: 60px;
-    color: #fff;
-  }
-  .form h2{
-    font-size: 24px;
-    text-align: center;
-    line-height: 1.5;
-    padding-bottom: 16px;
-  }
-  .form-bottom{
-    display: flex;
-    justify-content: space-between;
-  }
-  .feedback{
-    width: 460px;
-    resize: none;
-    border-radius: 5px;
-  }
-  .form-right{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-left: 3%;
-  }
-  label, input{
-    width: 460px;
-    font-size: 16px;
-    line-height: 1.8;
-  }
-  @media(max-width:768px){
-    label, input{
-      max-width: 345px;
-    }
-  }
-  @media(max-width:569px){
-    label, input{
-      max-width: 230px;
-    }
-  }
-  #name, #number, #email{
-    margin-bottom: 10px;
-    border-radius: 3px;
-    border: 0px #fff;
-    padding-left: 12px;
-  }
-  .submit{
-    width: 60px;
-    margin-top: 10px;
-    border-radius: 5px;
-    border: 0px;
-    cursor: pointer;
-    color: #fff;
-    background: #00cc99;
-  }
-  .footer{
-    padding: 5px 0px 40px;
-  }
-  .footer h1 a{
-    background-image: url(https://github.com/yan-tingciou/jq-final/blob/main/images/footerLogo.png?raw=true);
-    width: 171px;
-    height: 36px;
-    display: inline-block;
-    text-indent: 101%;
-    overflow: hidden;
-    white-space: nowrap;
-    margin: 20px 15px;
-  }
-  .footer h1{
-    display: inline-block;
-  }
-  .footer ul{
-    margin: 20px 10px 0px 0px;
-    float: right;
-    line-height: 1.5;
-  }
-  .footer a{
-    text-decoration: none;
-    color: #e54991;
-  }
-  .footer a:hover{
-    color: #000000;
-  }
-  #gotop{
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    font-size: 60px;
-    color: #D9D9D9;
-    display: none;
-  }
-  #gotop:hover{
-    color: #00cc99;
-  }
+}
+.type li img{
+  display: block;
+  margin: 0 auto;
+  height: auto;
+}
+.jquery li{
+  list-style-type: disc;
+  font-size: 10px;
+  padding-left: 0px;
+  margin-left: 16px;
+}
+.jquery span{
+  font-size: 16px;
+}
+.compare h2{
+  font-size: 36px;
+  text-align: center;
+}
+.compare table{
+  font-size: 16px;
+  font-family: sans-serif;
+  margin: 0 auto;
+  line-height: 2.5;
+  margin-top: 30px;
+}
+.compare th, td{
+  width: 200px;
+  border-bottom: 1px solid #d7dbe0;
+  padding: 0px 25px;
+}
+.compare th{
+  border-top: 1px solid #d7dbe0;
+  background: rgba(0, 0, 0, .1);
+  text-align: left;
+}
+.green{
+  color: #00cc99;
+}
+.form{
+  background-image: url(https://github.com/yan-tingciou/final-assignment/blob/main/%E4%BD%BF%E7%94%A8html%E5%81%9A%E7%B6%B2%E7%AB%99--2_30_03.png?raw=true);
+  padding: 30px 20px 23px 20px;
+  margin-top: 60px;
+  color: #fff;
+}
+.form h2{
+  font-size: 24px;
+  text-align: center;
+  line-height: 1.5;
+  padding-bottom: 16px;
+}
+.form-bottom{
+  display: flex;
+  justify-content: space-between;
+}
+.feedback{
+  width: 460px;
+  resize: none;
+  border-radius: 5px;
+}
+.form-right{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: 3%;
+}
+label, input{
+  width: 460px;
+  font-size: 16px;
+  line-height: 1.8;
+}
+#name, #number, #email{
+  margin-bottom: 10px;
+  border-radius: 3px;
+  border: 0px #fff;
+  padding-left: 12px;
+}
+.submit{
+  width: 60px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 0px;
+  cursor: pointer;
+  color: #fff;
+  background: #00cc99;
+}
+.footer{
+  padding: 5px 0px 40px;
+}
+.footer h1 a{
+  background-image: url(https://github.com/yan-tingciou/jq-final/blob/main/images/footerLogo.png?raw=true);
+  width: 171px;
+  height: 36px;
+  display: inline-block;
+  text-indent: 101%;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 20px 15px;
+}
+.footer h1{
+  display: inline-block;
+}
+.footer ul{
+  margin: 20px 10px 0px 0px;
+  float: right;
+  line-height: 1.5;
+}
+.footer a{
+  text-decoration: none;
+  color: #e54991;
+}
+.footer a:hover{
+  color: #000000;
+}
+#gotop{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-size: 60px;
+  color: #D9D9D9;
+  display: none;
+}
+#gotop:hover{
+  color: #00cc99;
+}
